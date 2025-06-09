@@ -26,7 +26,7 @@ const Header = ({ toggleSidebar, currentUser, onSignOut, onSearch }) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
     try {
-      const res = await fetch(`http://192.168.0.190:5000/api/videos/search?q=${encodeURIComponent(searchQuery)}`);
+      const res = await fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/videos/search?q=${encodeURIComponent(searchQuery)}`);
       const data = await res.json();
       onSearch(data, true);
       if (isMobileSearchOpen) setIsMobileSearchOpen(false);
@@ -53,7 +53,7 @@ const Header = ({ toggleSidebar, currentUser, onSignOut, onSearch }) => {
   // Fetch notifications for the current user
   useEffect(() => {
     if (currentUser) {
-      fetch(`http://192.168.0.190:5000/api/users/me/notifications`, {
+      fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/users/me/notifications`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       })
         .then(res => res.json())
@@ -77,7 +77,7 @@ const Header = ({ toggleSidebar, currentUser, onSignOut, onSearch }) => {
   // Mark notifications as read when the dropdown is opened
   useEffect(() => {
     if (showNotifications && notifications.some(n => !n.read)) {
-      fetch('http://192.168.0.190:5000/api/users/me/notifications/mark-read', {
+      fetch('https://youtubeclone-backend-b4m2.onrender.com/api/users/me/notifications/mark-read', {
         method: 'POST',
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       }).then(() => {
