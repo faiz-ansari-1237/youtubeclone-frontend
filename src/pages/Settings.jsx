@@ -19,7 +19,7 @@ const ProfileSettings = ({ currentUser, onProfileUpdate }) => {
         if (newPicture) formData.append('profilePicture', newPicture);
 
         const token = localStorage.getItem('token');
-        const res = await fetch(`http://192.168.0.190:5000/api/users/${currentUser._id}`, {
+        const res = await fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/users/${currentUser._id}`, {
             method: 'PUT',
             headers: { Authorization: `Bearer ${token}` },
             body: formData,
