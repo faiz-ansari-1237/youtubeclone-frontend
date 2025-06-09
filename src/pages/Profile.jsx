@@ -146,7 +146,7 @@ const ProfilePage = () => {
                 onSubmit={async (e) => {
                   e.preventDefault();
                   const token = localStorage.getItem('token');
-                  const res = await fetch(`http://192.168.0.190:5000/api/videos/${editingVideo._id}`, {
+                  const res = await fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/videos/${editingVideo._id}`, {
                     method: 'PUT',
                     headers: {
                       'Content-Type': 'application/json',
