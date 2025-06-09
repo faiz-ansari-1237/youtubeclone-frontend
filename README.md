@@ -33,7 +33,7 @@ This is the frontend for the YouTube Clone project, built with React.
 
 4. Start the development server:
    ```
-   npm start
+   npm run dev
    ```
 
 ## Deployment
