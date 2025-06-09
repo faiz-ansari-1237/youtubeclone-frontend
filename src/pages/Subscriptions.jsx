@@ -22,7 +22,7 @@ function Subscriptions() {
           navigate("/signin");
           return;
         }
-        const channelsRes = await fetch("http://192.168.0.190:5000/api/users/subscriptions", {
+        const channelsRes = await fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/users/subscriptions`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (channelsRes.status === 401) {
@@ -39,7 +39,7 @@ function Subscriptions() {
         }
 
         const channelIds = channelsData.map((ch) => ch._id).join(",");
-        const videosRes = await fetch(`http://192.168.0.190:5000/api/videos/by-channels?ids=${channelIds}`, {
+        const videosRes = await fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/videos/by-channels?ids=${channelIds}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const videosData = await videosRes.json();
