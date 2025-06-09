@@ -6,7 +6,7 @@ const WatchLater = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) return;
-    fetch('http://192.168.0.190:5000/api/users/me/watch-later', {
+    fetch('https://youtubeclone-backend-b4m2.onrender.com/api/users/me/watch-later', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => res.json())
