@@ -8,7 +8,7 @@ const Feed = ({ searchQuery }) => {
 
   useEffect(() => {
     // Fetch videos from backend API
-    fetch('http://192.168.0.190:5000/api/videos')
+    fetch('https://youtubeclone-backend-b4m2.onrender.com/api/videos')
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
