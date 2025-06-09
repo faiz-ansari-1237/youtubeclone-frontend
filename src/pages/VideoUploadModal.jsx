@@ -63,7 +63,7 @@ const VideoUploadModal = ({ isOpen, onClose, onUpload, token, currentUser }) => 
 
     // Use XMLHttpRequest for progress
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://192.168.0.190:5000/api/videos', true);
+    xhr.open('POST', 'https://youtubeclone-backend-b4m2.onrender.com/api/videos', true);
     xhr.setRequestHeader('Authorization', `Bearer ${token}`);
 
     xhr.upload.onprogress = (event) => {
