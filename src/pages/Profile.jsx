@@ -21,7 +21,7 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
-    fetch(`http://192.168.0.190:5000/api/users/${profileId}`)
+    fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/users/${profileId}`)
       .then(res => res.json())
       .then(data => {
         setProfile(data);
@@ -32,7 +32,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     if (profileId) {
-      fetch(`http://192.168.0.190:5000/api/videos?userId=${profileId}`)
+      fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/videos?userId=${profileId}`)
         .then(res => res.json())
         .then(data => {
           setUserVideos(data);
@@ -45,7 +45,7 @@ const ProfilePage = () => {
   const handleDeleteVideo = async (videoId) => {
     if (!window.confirm('Are you sure you want to delete this video?')) return;
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://192.168.0.190:5000/api/videos/${videoId}`, {
+    const res = await fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/videos/${videoId}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` },
     });
