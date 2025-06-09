@@ -29,7 +29,7 @@ const WatchPage = () => {
   useEffect(() => {
     setLoading(true);
     // Fetch video details
-    fetch(`http://192.168.0.190:5000/api/videos/${id}`)
+    fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/videos/${id}`)
       .then(res => res.json())
       .then(data => {
         setVideo(data);
@@ -57,7 +57,7 @@ const WatchPage = () => {
     fetchComments(id, 1);
 
     // Fetch recommended videos (all except current)
-    fetch('http://192.168.0.190:5000/api/videos')
+    fetch('https://youtubeclone-backend-b4m2.onrender.com/api/videos')
       .then(res => res.json())
       .then(data => setRecommended(data.filter(v => v._id !== id).slice(0, 4)));
   }, [id]);
@@ -90,7 +90,7 @@ const WatchPage = () => {
 
     // Increment view count (for logged-in users)
     if (token) {
-      fetch(`http://192.168.0.190:5000/api/videos/${video._id}/view`, {
+      fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/videos/${video._id}/view`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -103,7 +103,7 @@ const WatchPage = () => {
         .catch(err => console.error('View count error:', err));
 
       // Add to watch history
-      fetch(`http://192.168.0.190:5000/api/videos/${video._id}/history`, {
+      fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/videos/${video._id}/history`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -113,7 +113,7 @@ const WatchPage = () => {
   }, [video?._id]);
 
   const fetchComments = (videoId) => {
-    fetch(`http://192.168.0.190:5000/api/comments/video/${videoId}`)
+    fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/comments/video/${videoId}`)
       .then(res => res.json())
       .then(setComments)
       .catch(() => setComments([]));
@@ -128,7 +128,7 @@ const WatchPage = () => {
     }
 
     try {
-      const res = await fetch(`http://192.168.0.190:5000/api/users/${video.owner._id}/subscribe`, {
+      const res = await fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/users/${video.owner._id}/subscribe`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -149,7 +149,7 @@ const WatchPage = () => {
       return;
     }
     try {
-      const res = await fetch(`http://192.168.0.190:5000/api/videos/${video._id}/like`, {
+      const res = await fetch(`https://youtubeclone-backend-b4m2.onrender.com/api/videos/${video._id}/like`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -170,7 +170,7 @@ const WatchPage = () => {
     if (!newComment.trim()) return;
     setPosting(true);
     try {
-      const res = await fetch('http://192.168.0.190:5000/api/comments', {
+      const res = await fetch('https://youtubeclone-backend-b4m2.onrender.com/api/comments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -189,7 +189,7 @@ const WatchPage = () => {
   };
 
   const handleReply = async (parentId, replyText) => {
-    const res = await fetch('http://192.168.0.190:5000/api/comments', {
+    const res = await fetch('https://youtubeclone-backend-b4m2.onrender.com/api/comments', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
