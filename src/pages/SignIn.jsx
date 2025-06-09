@@ -26,12 +26,12 @@ const SignInPage = ({ onSignIn }) => {
         formData.append('channelName', channelName);
         if (profilePicture) formData.append('profilePicture', profilePicture);
 
-        response = await fetch('http://192.168.0.190:5000/api/auth/signup', {
+        response = await fetch('https://youtubeclone-backend-b4m2.onrender.com/api/auth/signup', {
           method: 'POST',
           body: formData,
         });
       } else {
-        response = await fetch('http://192.168.0.190:5000/api/auth/signin', {
+        response = await fetch('https://youtubeclone-backend-b4m2.onrender.com/api/auth/signin', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
