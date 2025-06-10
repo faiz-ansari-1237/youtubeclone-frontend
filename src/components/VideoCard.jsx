@@ -70,7 +70,7 @@ const VideoCard = ({ video }) => {
                   <MoreVertical className='w-5 h-5'/>
                 </button>
                 {menuOpen && (
-                  <div className="absolute right-0 top-8 bg-white shadow-lg rounded z-50 min-w-[180px]">
+                  <div className="absolute right-0 top-8 bg-white shadow-lg rounded z-[999] min-w-[180px]">
                     <button
                       className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 w-full text-left"
                       onClick={e => {
